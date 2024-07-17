@@ -573,7 +573,7 @@ namespace oceanbase
         // your code here
         ObAggCell *cell = agg_row_.at(0);
         ObCountAggCell *c = (ObCountAggCell *)cell;
-        c->eval(row_buf_, row_count);
+        c->eval(*row_buf_.storage_datums_, row_count);
       }
       return ret;
     }
