@@ -453,6 +453,10 @@ int ObAggregatedStore::fill_count(const int64_t row_count)
     STORAGE_LOG(WARN, "Invalid argument to fill count", K(ret), K(row_count));
   } else {
     LOG_DEBUG("debug to fill row count", K(ret), K(row_count));
+    // your code here
+    ObAggCell *cell = agg_row_.at(0);
+    ObCountAggCell * c = (ObCountAggCell*)cell;
+    c->row_count_ = row_count;
   }
   return ret;
 }
